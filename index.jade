@@ -1,0 +1,61 @@
+//- 4 Hours done
+
+doctype
+html
+	head
+		title B.O.B. Quoting Tool
+		link(rel="stylesheet", href="/css/bootstrap.css")
+		meta(name="viewport", content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width")
+		style.
+			[v-cloak] {
+			  display: none;
+			}
+	body#app
+		div.container
+			div.row
+				div.col-md-offset-4.col-md-4.col-xs-12
+
+					div(v-if="!estimate", v-cloak)
+
+						h1.text-center Quote Calculator
+						br
+
+						div.form-group
+							label # of Passengers
+							select.form-control(type="text" v-model="passengers")
+								option(value="")
+								option(value="11") 11
+								option(value="14") 14
+
+						//-
+							div.form-group
+								label Reserved or On Demand
+								select.form-control(type="text" v-model="type")
+									option(value="")
+									option(value="Reserved") Reserved
+									option(value="On Demand") On Demand
+
+						div.form-group
+							label Choose Starting Point
+							places(model="start", placeholder="123 Apartments Mesa, AZ")
+
+						div.form-group
+							label Choose Destination
+							places(model="end", placeholder="456 Destination Mesa, AZ")
+
+						div.form-group
+							button.btn.btn-primary(@click="getQuote") Get Quote
+
+					div(v-if="estimate", v-cloak)
+
+						h1.text-center Quote Estimate
+						h2.text-center {{ estimate.quote | currency }}
+						h3.text-center
+							| Miles: {{ estimate.miles.toFixed(2) }}
+							br
+							| Minutes: {{ estimate.minutes.toFixed(2) }}
+
+		script(type="text/javascript", src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdZF1t8WvCfvcP0Yq27UZi0gIIsjWs7qw&libraries=places")
+		script(type="text/javascript", src="/js/vue.js")
+		script(type="text/javascript", src="/js/app.js")
+
