@@ -3,8 +3,14 @@
 }
 
 .quote-view {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
+
+	position: relative;
+	
+	.quote-content {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+	}
+
 }
