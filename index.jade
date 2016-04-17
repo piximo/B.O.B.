@@ -1,21 +1,19 @@
-//- 4 Hours done
+//- 4.5 Hours done
 
 doctype
 html
 	head
 		title B.O.B. Quoting Tool
 		link(rel="stylesheet", href="css/bootstrap.css")
+		link(rel="stylesheet", href="css/app.css")
+		link(rel="stylesheet", href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css")
 		meta(name="viewport", content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width")
-		style.
-			[v-cloak] {
-			  display: none;
-			}
 	body#app
 		div.container
 			div.row
 				div.col-md-offset-4.col-md-4.col-xs-12
 
-					div(v-if="!estimate", v-cloak)
+					div.animated.quote-view(v-show="!estimate", v-cloak, transition="fade")
 
 						h1.text-center Quote Calculator
 						br
@@ -46,7 +44,7 @@ html
 						div.form-group
 							button.btn.btn-primary(@click="getQuote") Get Quote
 
-					div(v-if="estimate", v-cloak)
+					div.animated.quote-view(v-show="estimate", v-cloak, transition="fade")
 
 						h1.text-center Quote Estimate
 						h2.text-center {{ estimate.quote | currency }}

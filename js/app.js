@@ -28,6 +28,11 @@ Vue.component('places', {
 
 });
 
+Vue.transition('fade', {
+	enterClass: 'bounceInLeft',
+	leaveClass: 'bounceOutRight'
+});
+
 new Vue({
 	el: '#app',
 	data: {

@@ -1,16 +1,26 @@
 var gulp = require('gulp');
 var jade = require('gulp-jade');
+var livereload = require('gulp-livereload');
+var sass = require('gulp-sass');
+ 
+gulp.task('scss', function () {
+	return gulp.src('./scss/**/*.scss')
+		.pipe(sass().on('error', sass.logError))
+		.pipe(gulp.dest('./css'))
+		.pipe(livereload());
+});
 
 gulp.task('templates', function() {
-
-	gulp.src('./index.jade')
+	return gulp.src('./index.jade')
 		.pipe(jade())
-		.pipe(gulp.dest('./'));
-
+		.pipe(gulp.dest('./'))
+		.pipe(livereload());
 });
 
 gulp.task('watch', function () {
-	gulp.watch(['./index.jade'], ['templates']);
+	livereload.listen();
+	gulp.watch('./index.jade', ['templates']);
+	gulp.watch('./scss/**/*.scss', ['scss']);
 });
 
 gulp.task('default', ['watch']);

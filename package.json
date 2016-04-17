@@ -3,6 +3,8 @@
   "description": "B.O.B. quote tool",
   "dependencies": {
     "gulp": "^3.9.1",
-    "gulp-jade": "^1.1.0"
+    "gulp-jade": "^1.1.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-sass": "^2.2.0"
   }
 }
