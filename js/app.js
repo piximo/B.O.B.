@@ -29,8 +29,8 @@ Vue.component('places', {
 });
 
 Vue.transition('fade', {
-	enterClass: 'bounceInLeft',
-	leaveClass: 'bounceOutRight'
+	enterClass: 'zoomInDown',
+	leaveClass: 'fadeOutDown'
 });
 
 new Vue({
