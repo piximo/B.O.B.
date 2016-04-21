@@ -30,7 +30,7 @@ Vue.component('places', {
 
 Vue.transition('fade', {
 	enterClass: 'zoomInDown',
-	leaveClass: 'fadeOutDown'
+	leaveClass: 'zoomOut'
 });
 
 new Vue({

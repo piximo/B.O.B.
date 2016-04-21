@@ -17,10 +17,16 @@ gulp.task('templates', function() {
 		.pipe(livereload());
 });
 
+gulp.task('js', function(){
+	return gulp.src('./js/*.js')
+		.pipe(livereload());
+});
+
 gulp.task('watch', function () {
 	livereload.listen();
 	gulp.watch('./index.jade', ['templates']);
 	gulp.watch('./scss/**/*.scss', ['scss']);
+	gulp.watch('./js/*.js', ['js']);
 });
 
 gulp.task('default', ['watch']);
