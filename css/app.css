@@ -24,7 +24,8 @@ html {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover; }
+  background-size: cover;
+  min-height: 100%; }
 
 body {
   font-family: 'freight-sans-pro', sans-serif; }
