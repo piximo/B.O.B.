@@ -19,6 +19,13 @@
 [v-cloak] {
   display: none; }
 
+html {
+  background: url(../img/arizona-blur.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
 body {
   font-family: 'freight-sans-pro', sans-serif; }
 
@@ -40,12 +47,19 @@ label {
     outline: none !important;
     box-shadow: 0px !important; }
 
-.btn-dark {
-  background: #333;
-  color: #FFF;
+.well {
+  background: rgba(255, 255, 255, 0.8); }
+
+.btn {
   text-transform: uppercase;
   font-size: 14px;
   letter-spacing: 3px; }
+  .btn:active, .btn:focus, .btn:hover {
+    outline: none !important; }
+
+.btn-dark {
+  background: #333;
+  color: #FFF; }
   .btn-dark:active, .btn-dark:focus, .btn-dark:hover {
     background: #000;
     color: #FFF; }

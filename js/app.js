@@ -35,19 +35,26 @@ Vue.transition('fade', {
 
 new Vue({
 	el: '#app',
-	data: {
+	data: init(),
+	methods: {
+		getQuote: getQuote,
+		reset: reset
+	}
+});
+
+// Initial Data
+function init() {
+	return {
 		passengers: '',
 		type: '',
 		start: '',
 		end: '',
 		distance: '',
 		time: '',
-		estimate: ''
-	},
-	methods: {
-		getQuote: getQuote
+		estimate: '',
+		roundTrip: ''
 	}
-});
+}
 
 // Calculate quote
 function getQuote() {
@@ -63,17 +70,21 @@ function getQuote() {
 
 		var miles = distance.miles;
 		var minutes = distance.minutes;
-		var rates = getRates(self.passengers);
+		var rates = getRates(self.type, self.passengers);
 
 		var quote = rates.base + (miles * rates.mile) + (minutes * rates.minute);
 
-		if (quote < 75) {
-			quote = 75;
+		if (quote < rates.minimum) {
+			quote = rates.minimum;
 		}
 
 		console.log('D:', miles, 'miles');
 		console.log('T:', minutes, 'minutes');
 		console.log('Quote is', quote);
+
+		if (self.roundTrip) {
+			quote *= 2;
+		}
 
 		self.estimate = {
 			miles: miles,
@@ -85,10 +96,25 @@ function getQuote() {
 
 }
 
+// Reset to try again
+function reset() {
+	console.log('reset');
+	this.$data = init();
+}
+
 // Get base rate
-function getRates(passengers) {
+function getRates(type, passengers) {
 
 	var rates = {};
+
+	console.log('Type:', type);
+
+	if (type === 'Reserved') {
+		rates.minimum = 75;
+	}
+	else {
+		rates.minimum = 25;
+	}
 
 	if (passengers === '11') {
 

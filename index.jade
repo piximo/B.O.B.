@@ -1,4 +1,4 @@
-//- 4.5 Hours done
+//- 5 Hours done
 
 doctype
 html
@@ -15,43 +15,58 @@ html
 				div.col-md-offset-4.col-md-4.col-xs-12
 					div.quote-view
 						div.animated.quote-content(v-show="!estimate", v-cloak, transition="fade")
-							h1.text-center Get a Quote
 							br
+							div.well
+								h2.text-center Get a Quote
+								br
 
-							div.form-group
-								label # of Passengers
-								select.form-control(type="text" v-model="passengers")
-									option(value="")
-									option(value="11") 11
-									option(value="14") 14
+								div.form-group
+									label # of Passengers
+									select.form-control(type="text", v-model="passengers")
+										option(value="")
+										option(value="11") 11
+										option(value="14") 14
 
-							//-
 								div.form-group
 									label Reserved or On Demand
-									select.form-control(type="text" v-model="type")
+									select.form-control(type="text", v-model="type")
 										option(value="")
 										option(value="Reserved") Reserved
 										option(value="On Demand") On Demand
 
-							div.form-group
-								label Choose Starting Point
-								places(model="start", placeholder="123 Apartments Mesa, AZ")
+								div.form-group
+									label Choose Starting Point
+									places(model="start", placeholder="123 Apartments Mesa, AZ")
 
-							div.form-group
-								label Choose Destination
-								places(model="end", placeholder="456 Destination Mesa, AZ")
+								div.form-group
+									label Choose Destination
+									places(model="end", placeholder="456 Destination Mesa, AZ")
 
-							div.form-group.text-center
-								button.btn.btn-lg.btn-dark(@click="getQuote") Quote Me
+								div.checkbox(v-cloak, v-show="type === 'Reserved'")
+									label
+										input(type="checkbox", v-model="roundTrip")
+										| Round Trip
+
+								br
+
+								div.form-group.text-center
+									button.btn.btn-lg.btn-dark(@click="getQuote") Quote Me
+
+
 
 					div.quote-view
 						div.animated.quote-content(v-show="estimate", v-cloak, transition="fade")
-							h1.text-center Quote Estimate
-							h2.text-center {{ estimate.quote | currency }}
-							h3.text-center
-								| Miles: {{ estimate.miles.toFixed(2) }}
+							br
+							div.well
+								h2.text-center Quote Estimate
+								h1.text-center(style="font-size: 50px;") {{ estimate.quote | currency }}
 								br
-								| Minutes: {{ estimate.minutes.toFixed(2) }}
+								div.text-center
+									button.btn.btn-lg.btn-dark Contact Us
+									br
+									br
+									button.btn.btn-lg.btn-link(@click="reset") Get Another Quote
+
 
 		script(type="text/javascript", src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdZF1t8WvCfvcP0Yq27UZi0gIIsjWs7qw&libraries=places")
 		script(type="text/javascript", src="js/vue.js")
