@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var jade = require('gulp-jade');
 var livereload = require('gulp-livereload');
+var webserver = require('gulp-webserver');
 var sass = require('gulp-sass');
  
 gulp.task('scss', function () {
@@ -22,6 +23,11 @@ gulp.task('js', function(){
 		.pipe(livereload());
 });
 
+gulp.task('webserver', function(){
+	gulp.src('./')
+		.pipe(webserver());
+});
+
 gulp.task('watch', function () {
 	livereload.listen();
 	gulp.watch('./index.jade', ['templates']);
@@ -29,4 +35,4 @@ gulp.task('watch', function () {
 	gulp.watch('./js/*.js', ['js']);
 });
 
-gulp.task('default', ['watch']);
+gulp.task('default', ['watch', 'webserver']);

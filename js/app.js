@@ -1,7 +1,7 @@
 // Quoting JS
 
 Vue.component('places', {
-	template: '<input type="text" class="form-control" v-model="place" :placeholder="placeholder" />',
+	template: '<input type="text" class="form-control place" v-model="place" :placeholder="placeholder" />',
 	props: ['model', 'placeholder'],
 	data: {
 		place: '',
@@ -52,7 +52,8 @@ function init() {
 		distance: '',
 		time: '',
 		estimate: '',
-		roundTrip: ''
+		roundTrip: '',
+		contact: ''
 	}
 }
 
@@ -92,13 +93,23 @@ function getQuote() {
 			quote: quote
 		}
 
+		var subject = 'B.O.B. Fare Estimate';
+		var body = 	'I received a quote of $' + self.estimate.quote + '.\n\n' + 
+					'Here is my information:\n' +
+					'Passengers: ' + self.passengers + '\n' +
+					'Reserved or On Demand: ' + self.type + '\n' +
+					'Starting address: ' + self.start + '\n' +
+					'Destination address: ' + self.end + '\n';
+
+		self.contact = 'mailto:heath@bigorangebus.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+
 	});
 
 }
 
 // Reset to try again
 function reset() {
-	console.log('reset');
+	$('.place').val('');
 	this.$data = init();
 }
 
