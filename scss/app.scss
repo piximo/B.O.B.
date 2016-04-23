@@ -53,6 +53,7 @@ label {
 	font-family: sans-serif;
 	padding: 12px;
 	box-shadow: none !important;
+	-webkit-appearance: none;
 
 	&:active, &:focus {
 		background: #FFF;

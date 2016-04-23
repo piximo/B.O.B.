@@ -43,7 +43,8 @@ label {
   font-weight: 500 !important;
   font-family: sans-serif;
   padding: 12px;
-  box-shadow: none !important; }
+  box-shadow: none !important;
+  -webkit-appearance: none; }
   .form-control:active, .form-control:focus {
     background: #FFF;
     outline: none !important;
