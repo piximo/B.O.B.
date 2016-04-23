@@ -68,6 +68,9 @@ label {
 .btn-lg {
   padding: 16px 20px; }
 
+.btn-group .btn {
+  padding: 9px 12px; }
+
 .quote-view {
   position: relative; }
   .quote-view .quote-content {

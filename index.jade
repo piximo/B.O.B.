@@ -22,17 +22,15 @@ html
 
 								div.form-group
 									label # of Passengers
-									select.form-control(type="text", v-model="passengers")
-										option(value="")
-										option(value="11") 11
-										option(value="14") 14
+									div.btn-group.btn-group-justified
+										a.btn.btn-default(@click="passengers = 11", :class='{ active: passengers == 11 }') 11
+										a.btn.btn-default(@click="passengers = 14", :class='{ active: passengers == 14 }') 14
 
 								div.form-group
 									label Reserved or On Demand
-									select.form-control(type="text", v-model="type")
-										option(value="")
-										option(value="Reserved") Reserved
-										option(value="On Demand") On Demand
+									div.btn-group.btn-group-justified
+										a.btn.btn-default(@click="type = 'Reserved'", :class='{ active: type == "Reserved" }') Reserved
+										a.btn.btn-default(@click="type = 'On Demand'", :class='{ active: type == "On Demand" }') On Demand
 
 								div.form-group
 									label Starting Address
