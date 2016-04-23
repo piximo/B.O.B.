@@ -68,7 +68,7 @@ label {
 .btn-lg {
   padding: 16px 20px; }
 
-.btn-group .btn {
+.btn-group .btn, .input-group-btn .btn {
   padding: 9px 12px; }
 
 .quote-view {

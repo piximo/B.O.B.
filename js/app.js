@@ -1,8 +1,8 @@
 // Quoting JS
 
 Vue.component('places', {
-	template: '<input type="text" class="form-control place" v-model="place" :placeholder="placeholder" />',
-	props: ['model', 'placeholder'],
+	template: '<input :id="id" type="text" class="form-control place" v-model="place" :placeholder="placeholder" />',
+	props: ['id', 'model', 'placeholder'],
 	data: {
 		place: '',
 		set: false
@@ -38,7 +38,8 @@ new Vue({
 	data: init(),
 	methods: {
 		getQuote: getQuote,
-		reset: reset
+		reset: reset,
+		clearPlace: clearPlace
 	}
 });
 
@@ -94,7 +95,7 @@ function getQuote() {
 		}
 
 		var subject = 'B.O.B. Fare Estimate';
-		var body = 	'I received a quote of $' + self.estimate.quote + '.\n\n' + 
+		var body = 	'I received a quote of $' + self.estimate.quote.toFixed(2) + '.\n\n' + 
 					'Here is my information:\n' +
 					'Passengers: ' + self.passengers + '\n' +
 					'Reserved or On Demand: ' + self.type + '\n' +
@@ -179,4 +180,10 @@ function calculateDistance(start, end, calculated) {
 
 	});
 
+}
+
+// Clears out the google place input
+function clearPlace(input) {
+	this.$data[input] = '';
+	$('#' + input).val('');
 }

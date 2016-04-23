@@ -7,6 +7,7 @@ html
 		link(rel="stylesheet", href="css/bootstrap.css")
 		link(rel="stylesheet", href="css/app.css")
 		link(rel="stylesheet", href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css")
+		link(rel="stylesheet", href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css")
 		link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600', type='text/css')
 		meta(name="viewport", content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width")
 	body#app
@@ -34,11 +35,17 @@ html
 
 								div.form-group
 									label Starting Address
-									places(model="start", placeholder="123 Apartments Mesa, AZ")
+									div.input-group
+										places(id="start", model="start", placeholder="123 Apartments Mesa, AZ")
+										span.input-group-btn
+											button.btn.btn-default(@click="clearPlace('start')"): i.fa.fa-close
 
 								div.form-group
 									label Destination Address
-									places(model="end", placeholder="456 Destination Mesa, AZ")
+									div.input-group
+										places(id="end", model="end", placeholder="456 Destination Mesa, AZ")
+										span.input-group-btn
+											button.btn.btn-default(@click="clearPlace('end')"): i.fa.fa-close
 
 								div.checkbox(v-cloak, v-show="type === 'Reserved'")
 									label
