@@ -52,11 +52,12 @@ label {
 	font-weight: 500 !important;
 	font-family: sans-serif;
 	padding: 12px;
+	box-shadow: none !important;
 
 	&:active, &:focus {
 		background: #FFF;
 		outline: none !important;
-		box-shadow: 0px !important;
+		box-shadow: none !important;
 	}
 }
 

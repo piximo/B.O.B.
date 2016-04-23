@@ -42,11 +42,12 @@ label {
   border-color: #CCC !important;
   font-weight: 500 !important;
   font-family: sans-serif;
-  padding: 12px; }
+  padding: 12px;
+  box-shadow: none !important; }
   .form-control:active, .form-control:focus {
     background: #FFF;
     outline: none !important;
-    box-shadow: 0px !important; }
+    box-shadow: none !important; }
 
 .well {
   background: rgba(255, 255, 255, 0.8); }
