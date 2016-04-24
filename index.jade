@@ -65,12 +65,19 @@ html
 							div.well
 								h2.text-center Quote Estimate
 								h1.text-center(style="font-size: 50px;") {{ estimate.quote | currency }}
+								h3.text-center Want to book it?
 								br
 								div.text-center
-									a.btn.btn-lg.btn-dark(:href="contact") Contact Us
-									br
-									br
-									button.btn.btn-lg.btn-link(@click="reset") Get Another Quote
+									div
+										a.btn.btn-lg.btn-dark.btn-circle(style="width: 150px;", href="tel:4809498294")
+											i.fa.fa-phone
+											| &nbsp; Call Us
+										br
+										br
+										a.btn.btn-lg.btn-default.btn-circle(:href="contact")
+											i.fa.fa-envelope
+											| &nbsp; Email Us
+									button.btn.btn-lg.btn-link(@click="reset", style="margin-top: 15px") Get Another Quote
 
 
 		script(type="text/javascript", src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdZF1t8WvCfvcP0Yq27UZi0gIIsjWs7qw&libraries=places")
